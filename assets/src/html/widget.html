@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <template id="widget-page-template">
+  <template id="widget-page-template"></template>
     <style>
       .widget-content {
         font-family: 'Poppins', sans-serif;
@@ -100,19 +100,16 @@
       </p>
 
       <div class="dashboard">
-        <div class="dashboard-title">MEMORY MONITOR</div>
-        
-        <!-- The Code View -->
+        <div class="dashboard-title">SPEEDOMETER</div>
+    
         <div class="code-display">
           carSpeed = <span id="speed-val">0</span>
         </div>
 
-        <!-- The Visual Feedback -->
         <div class="speed-track">
           <div id="speed-fill" class="speed-bar"></div>
         </div>
 
-        <!-- The Interactive Controls -->
         <div class="controls">
           <button class="btn-brake" onclick="changeSpeed(-10)">🛑 Brake (-10)</button>
           <button class="btn-gas" onclick="changeSpeed(10)">🚀 Gas (+10)</button>
@@ -121,19 +118,12 @@
     </div>
 
     <script>
-      // 1. Initialize the variable
-      // We attach it to window so the HTML buttons can find it easily
       window.carSpeed = 0;
 
       window.changeSpeed = function(amount) {
-        // 2. Update the variable (The Math)
         window.carSpeed = window.carSpeed + amount;
-
-        // 3. Logic: Don't let speed go below 0 or above 100
         if (window.carSpeed < 0) window.carSpeed = 0;
         if (window.carSpeed > 100) window.carSpeed = 100;
-
-        // 4. Update the Screen (Visual Feedback)
         document.getElementById('speed-val').textContent = window.carSpeed;
         document.getElementById('speed-fill').style.width = window.carSpeed + "%";
       }
